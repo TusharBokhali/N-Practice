@@ -8,6 +8,8 @@ import 'react-native-reanimated';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { createStackNavigator } from '@react-navigation/stack';
 import Index from '@/screen/Index';
+import Animation from './Animation';
+
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -33,6 +35,10 @@ export default function RootLayout() {
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack.Navigator initialRouteName='Index' screenOptions={{headerShown:false,}} >
         <Stack.Screen name='Index' component={Index}/>
+        <Stack.Screen name='Animation' component={Animation} options={{
+          presentation:'transparentModal',
+          animation:'fade_from_bottom'
+        }}/>
       </Stack.Navigator>
       <StatusBar style="auto" />
     </ThemeProvider>
