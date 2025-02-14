@@ -4,12 +4,13 @@ import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
-
+import "../global.css"
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { createStackNavigator } from '@react-navigation/stack';
 import Index from '@/screen/Index';
 import Animation from './Animation';
-
+import Animations from './Animations';
+import ScrollAnimation from './ScrollAnimation';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -33,8 +34,10 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack.Navigator initialRouteName='Index' screenOptions={{headerShown:false,}} >
+      <Stack.Navigator initialRouteName='ScrollAnimation' screenOptions={{headerShown:false,}} >
         <Stack.Screen name='Index' component={Index}/>
+        <Stack.Screen name='Animations' component={Animations}/>
+        <Stack.Screen name='ScrollAnimation' component={ScrollAnimation}/>
         <Stack.Screen name='Animation' component={Animation} options={{
           presentation:'transparentModal',
           animation:'fade_from_bottom'

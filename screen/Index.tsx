@@ -9,7 +9,7 @@ export default function Index() {
     const {navigate} = useNavigation<any>();
     const [close,setClose] = useState(false);
     return (
-        <View style={styles.container}>
+        <View style={styles.container} className='bg-slate-600'>
                 {/* <BottomNavigator /> */}
                 <Pressable onPressIn={()=>{navigate('Animation');setClose(true)}}>
                     <Animated.Image 
